@@ -3,6 +3,6 @@ package money
 class Dollar(var amount: Int) {
 
     fun times(multiplier: Int) {
-        amount = 5 * 2
+        amount *= multiplier
     }
 }
