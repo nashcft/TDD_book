@@ -1,10 +1,8 @@
 package money
 
-class Dollar(val a: Int) {
-    var amount: Int = 10
+class Dollar(var amount: Int) {
 
     fun times(multiplier: Int) {
-
+        amount = 5 * 2
     }
-
 }
