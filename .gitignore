@@ -16,3 +16,9 @@ gradle-app.setting
 # IntelliJ IDEA
 .idea
 out
+
+# Eclipse
+.settings
+.classpath
+.project
+bin
