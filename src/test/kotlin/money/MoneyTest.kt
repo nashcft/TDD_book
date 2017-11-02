@@ -2,6 +2,7 @@ package money
 
 import org.junit.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class MoneyTest {
@@ -16,7 +17,9 @@ class MoneyTest {
 
     @Test fun testEquality() {
         assertTrue(Dollar(5) == Dollar(5),
-                "equals()")
+                "Compare Dollars with the same amount")
+        assertFalse(Dollar(5) == Dollar(6),
+                "Compare Dollars with different amount")
     }
 }
 
