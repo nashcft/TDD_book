@@ -18,6 +18,8 @@ class MoneyTest {
                 "Compare Dollars with the same amount")
         assertFalse(Dollar(5) == Dollar(6),
                 "Compare Dollars with different amount")
+        assertFalse(Dollar(5) == null,
+                "Compare Dollar to null")
     }
 }
 
