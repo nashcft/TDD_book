@@ -7,3 +7,5 @@
 - [ ] `amount` を private に
 - [x] `Dollar` の副作用をどうする?
 - [ ] `Money` の丸め処理をどうする?
+- [ ] `equals()`
+- [ ] `hashCode()`
