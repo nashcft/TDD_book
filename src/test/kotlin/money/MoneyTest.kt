@@ -1,7 +1,7 @@
 package money
 
-import money.Money.Dollar
-import money.Money.Franc
+import money.Money.Companion.dollar
+import money.Money.Companion.franc
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -10,30 +10,30 @@ import kotlin.test.assertTrue
 class MoneyTest {
 
     @Test fun testMultiplication() {
-        val five = Dollar(5)
-        assertEquals(Dollar(10), five.times(2))
-        assertEquals(Dollar(15), five.times(3))
+        val five = dollar(5)
+        assertEquals(dollar(10), five.times(2))
+        assertEquals(dollar(15), five.times(3))
     }
 
     @Test fun testEquality() {
-        assertTrue(Dollar(5) == Dollar(5),
+        assertTrue(dollar(5) == dollar(5),
                 "Compare Dollars with the same amount")
-        assertFalse(Dollar(5) == Dollar(6),
+        assertFalse(dollar(5) == dollar(6),
                 "Compare Dollars with different amount")
 
-        assertTrue(Franc(5) == Franc(5),
+        assertTrue(franc(5) == franc(5),
                 "Compare Francs with the same amount")
-        assertFalse(Franc(5) == Franc(6),
+        assertFalse(franc(5) == franc(6),
                 "Compare Francs with different amount")
 
         @Suppress("ReplaceCallWithComparison")
-        assertFalse(Dollar(5).equals(Franc(5)))
+        assertFalse(dollar(5).equals(franc(5)))
     }
 
     @Test fun testFrancMultiplication() {
-        val five = Franc(5)
-        assertEquals(Franc(10), five.times(2))
-        assertEquals(Franc(15), five.times(3))
+        val five = franc(5)
+        assertEquals(franc(10), five.times(2))
+        assertEquals(franc(15), five.times(3))
     }
 }
 

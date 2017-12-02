@@ -9,6 +9,11 @@ sealed class Money(private val amount: Int) {
         }
     }
 
+    companion object {
+        fun dollar(amount: Int): Money = Money.Dollar(amount)
+        fun franc(amount: Int): Money = Money.Franc(amount)
+    }
+
     data class Dollar(private val a: Int) : Money(a)
     data class Franc(private val a: Int) : Money(a)
 }
