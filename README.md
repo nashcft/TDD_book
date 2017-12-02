@@ -15,4 +15,5 @@
 - [ ] `Dollar` と `Franc` の重複
 - [x] `equals` の一般化
 - [x] `times`  の一般化 (ほとんど)
-- [ ] `Franc` と `Dollar` を比較する
+- [x] `Franc` と `Dollar` を比較する
+- [ ] 通過の概念

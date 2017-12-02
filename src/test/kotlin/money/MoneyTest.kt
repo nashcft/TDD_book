@@ -25,6 +25,9 @@ class MoneyTest {
                 "Compare Francs with the same amount")
         assertFalse(Franc(5) == Franc(6),
                 "Compare Francs with different amount")
+
+        @Suppress("ReplaceCallWithComparison")
+        assertFalse(Dollar(5).equals(Franc(5)))
     }
 
     @Test fun testFrancMultiplication() {
