@@ -11,4 +11,7 @@
 - [x] `hashCode()`
 - [x] `null` との等値性比較
 - [x] 他のオブジェクトとの等値性比較
-- [ ] 5CHF * 2 = 10CHF
+- [x] 5CHF * 2 = 10CHF
+- [ ] `Dollar` と `Franc` の重複
+- [ ] `equals` の一般化
+- [ ] `times`  の一般化
