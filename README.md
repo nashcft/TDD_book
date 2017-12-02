@@ -13,5 +13,6 @@
 - [x] 他のオブジェクトとの等値性比較
 - [x] 5CHF * 2 = 10CHF
 - [ ] `Dollar` と `Franc` の重複
-- [ ] `equals` の一般化
-- [ ] `times`  の一般化
+- [x] `equals` の一般化
+- [x] `times`  の一般化 (ほとんど)
+- [ ] `Franc` と `Dollar` を比較する

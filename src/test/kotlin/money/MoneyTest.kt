@@ -1,5 +1,7 @@
 package money
 
+import money.Money.Dollar
+import money.Money.Franc
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -18,9 +20,11 @@ class MoneyTest {
                 "Compare Dollars with the same amount")
         assertFalse(Dollar(5) == Dollar(6),
                 "Compare Dollars with different amount")
-        @Suppress("SENSELESS_COMPARISON")
-        assertFalse(Dollar(5) == null,
-                "Compare Dollar to null")
+
+        assertTrue(Franc(5) == Franc(5),
+                "Compare Francs with the same amount")
+        assertFalse(Franc(5) == Franc(6),
+                "Compare Francs with different amount")
     }
 
     @Test fun testFrancMultiplication() {
