@@ -2,11 +2,9 @@ package money
 
 sealed class Money(private val amount: Int, val currency: String) {
 
-    fun times(mul: Int): Money {
-        return when(this) {
-            is Dollar -> dollar(amount * mul)
-            is Franc -> franc(amount * mul)
-        }
+    fun times(mul: Int): Money = when (this) {
+        is Dollar -> dollar(amount * mul)
+        is Franc -> franc(amount * mul)
     }
 
     companion object {
