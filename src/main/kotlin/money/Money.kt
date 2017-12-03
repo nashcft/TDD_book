@@ -4,7 +4,7 @@ data class Money(private val amount: Int, val currency: String) : Expression {
 
     fun times(multiplier: Int): Money = Money(amount * multiplier, currency)
 
-    fun plus(added: Money): Expression = Money(amount + added.amount, currency)
+    fun plus(addend: Money): Expression = Sum(this, addend)
 
     companion object {
         fun dollar(amount: Int): Money = Money(amount, "USD")
