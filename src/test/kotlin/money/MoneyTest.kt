@@ -16,24 +16,10 @@ class MoneyTest {
     }
 
     @Test fun testEquality() {
-        assertTrue(dollar(5) == dollar(5),
-                "Compare Dollars with the same amount")
-        assertFalse(dollar(5) == dollar(6),
-                "Compare Dollars with different amount")
+        assertTrue(dollar(5) == dollar(5))
+        assertFalse(dollar(5) == dollar(6))
 
-        assertTrue(franc(5) == franc(5),
-                "Compare Francs with the same amount")
-        assertFalse(franc(5) == franc(6),
-                "Compare Francs with different amount")
-
-        @Suppress("ReplaceCallWithComparison")
-        assertFalse(dollar(5).equals(franc(5)))
-    }
-
-    @Test fun testFrancMultiplication() {
-        val five = franc(5)
-        assertEquals(franc(10), five.times(2))
-        assertEquals(franc(15), five.times(3))
+        assertFalse(dollar(5) == franc(5))
     }
 
     @Test fun testCurrency() {

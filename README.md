@@ -12,9 +12,9 @@
 - [x] `null` との等値性比較
 - [x] 他のオブジェクトとの等値性比較
 - [x] 5CHF * 2 = 10CHF
-- [ ] `Dollar` と `Franc` の重複
+- [x] `Dollar` と `Franc` の重複
 - [x] `equals` の一般化
 - [x] `times`  の一般化 (ほとんど)
 - [x] `Franc` と `Dollar` を比較する
 - [x] 通過の概念
-- [ ] `testFrancMultiplication` を削除する?
+- [x] `testFrancMultiplication` を削除する?
