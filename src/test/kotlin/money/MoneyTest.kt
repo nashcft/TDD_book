@@ -37,8 +37,8 @@ class MoneyTest {
     }
 
     @Test fun testCurrency() {
-        assertEquals("USD", dollar(1).currency())
-        assertEquals("CHF", franc(1).currency())
+        assertEquals("USD", dollar(1).currency)
+        assertEquals("CHF", franc(1).currency)
     }
 }
 

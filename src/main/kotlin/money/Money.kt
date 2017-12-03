@@ -2,17 +2,12 @@ package money
 
 sealed class Money(private val amount: Int) {
 
-    fun currency(): String {
-        return when(this) {
-            is Dollar -> "USD"
-            is Franc -> "CHF"
-        }
-    }
+    abstract val currency: String
 
     fun times(mul: Int): Money {
         return when(this) {
-            is Dollar -> Dollar(amount * mul)
-            is Franc -> Franc(amount * mul)
+            is Dollar -> dollar(amount * mul)
+            is Franc -> franc(amount * mul)
         }
     }
 
@@ -21,6 +16,6 @@ sealed class Money(private val amount: Int) {
         fun franc(amount: Int): Money = Money.Franc(amount)
     }
 
-    data class Dollar(private val a: Int) : Money(a)
-    data class Franc(private val a: Int) : Money(a)
+    data class Dollar(private val a: Int, override val currency: String = "USD") : Money(a)
+    data class Franc(private val a: Int, override val currency: String = "CHF") : Money(a)
 }
