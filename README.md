@@ -16,4 +16,5 @@
 - [x] `equals` の一般化
 - [x] `times`  の一般化 (ほとんど)
 - [x] `Franc` と `Dollar` を比較する
-- [ ] 通過の概念
+- [x] 通過の概念
+- [ ] `testFrancMultiplication` を削除する?
