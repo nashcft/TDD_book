@@ -1,6 +1,3 @@
 package money
 
-fun reduce(source: Expression, to: String): Money {
-    val sum = source as Sum
-    return sum.reduce(to)
-}
+fun reduce(source: Expression, to: String): Money = source.reduce(to)
