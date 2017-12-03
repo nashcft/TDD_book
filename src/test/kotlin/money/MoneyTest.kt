@@ -46,5 +46,12 @@ class MoneyTest {
         assertEquals(five, sum.augend)
         assertEquals(five, sum.addend)
     }
+
+    @Test
+    fun testReduceSum() {
+        val sum = Sum(dollar(3), dollar(4)) as Expression
+        val result = reduce(sum, "USD")
+        assertEquals(dollar(7), result)
+    }
 }
 

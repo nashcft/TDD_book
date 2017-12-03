@@ -6,6 +6,7 @@
 - [ ] `Money` の丸め処理をどうする?
 - [ ] $5 + $5 = $10
 - [ ] $5 + $5 = $10 が `Money` を返す
+- [ ] `Bank.reduce(Money)`
 
 ### TODO list (~Chapter 11)
 

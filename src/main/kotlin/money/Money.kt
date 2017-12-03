@@ -1,6 +1,6 @@
 package money
 
-data class Money(private val amount: Int, val currency: String) : Expression {
+data class Money(val amount: Int, val currency: String) : Expression {
 
     fun times(multiplier: Int): Money = Money(amount * multiplier, currency)
 
