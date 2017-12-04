@@ -1,4 +1,7 @@
 # TDD_book
+
+[![CircleCI](https://circleci.com/gh/nashcft/TDD_kotlin.svg?style=svg)](https://circleci.com/gh/nashcft/TDD_kotlin)
+
 ## Part 1
 ### TODO List (Chapter 12~)
 
