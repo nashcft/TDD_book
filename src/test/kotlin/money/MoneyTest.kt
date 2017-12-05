@@ -34,7 +34,7 @@ class MoneyTest {
     fun testSimpleAddition() {
         val five = dollar(5)
         val sum = five + dollar(5)
-        val reduced = reduce(sum, "USD")
+        val reduced = Bank().reduce(sum, "USD")
         assertEquals(dollar(10), reduced)
     }
 
@@ -49,20 +49,26 @@ class MoneyTest {
     @Test
     fun testReduceSum() {
         val sum = Expression.Sum(dollar(3), dollar(4))
-        val result = reduce(sum, "USD")
+        val result = Bank().reduce(sum, "USD")
         assertEquals(dollar(7), result)
     }
 
     @Test
     fun testReduceMoney() {
-        val result = reduce(dollar(1), "USD")
+        val result = Bank().reduce(dollar(1), "USD")
         assertEquals(dollar(1), result)
     }
 
     @Test
     fun testReduceMoneyDifferentCurrency() {
-        addRate("CHF", "USD", 2)
-        val result = reduce(franc(2), "USD")
+        val bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        val result = bank.reduce(franc(2), "USD")
         assertEquals(dollar(1), result)
+    }
+
+    @Test
+    fun testIdentityRate() {
+        assertEquals(1, Bank().rate("USD", "USD"))
     }
 }
