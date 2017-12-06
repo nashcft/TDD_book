@@ -2,6 +2,8 @@ package money
 
 import money.Money.Companion.dollar
 import money.Money.Companion.franc
+import money.Money.Currency.CHF
+import money.Money.Currency.USD
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -26,15 +28,15 @@ class MoneyTest {
 
     @Test
     fun testCurrency() {
-        assertEquals("USD", dollar(1).currency)
-        assertEquals("CHF", franc(1).currency)
+        assertEquals(USD, dollar(1).currency)
+        assertEquals(CHF, franc(1).currency)
     }
 
     @Test
     fun testSimpleAddition() {
         val five = dollar(5)
         val sum = five + dollar(5)
-        val reduced = Bank().reduce(sum, "USD")
+        val reduced = Bank().reduce(sum, USD)
         assertEquals(dollar(10), reduced)
     }
 
@@ -49,27 +51,27 @@ class MoneyTest {
     @Test
     fun testReduceSum() {
         val sum = Expression.Sum(dollar(3), dollar(4))
-        val result = Bank().reduce(sum, "USD")
+        val result = Bank().reduce(sum, USD)
         assertEquals(dollar(7), result)
     }
 
     @Test
     fun testReduceMoney() {
-        val result = Bank().reduce(dollar(1), "USD")
+        val result = Bank().reduce(dollar(1), USD)
         assertEquals(dollar(1), result)
     }
 
     @Test
     fun testReduceMoneyDifferentCurrency() {
         val bank = Bank()
-        bank.addRate("CHF", "USD", 2)
-        val result = bank.reduce(franc(2), "USD")
+        bank.addRate(CHF, USD, 2)
+        val result = bank.reduce(franc(2), USD)
         assertEquals(dollar(1), result)
     }
 
     @Test
     fun testIdentityRate() {
-        assertEquals(1, Bank().rate("USD", "USD"))
+        assertEquals(1, Bank().rate(USD, USD))
     }
 
     private val fiveBucks: Expression = dollar(5)
@@ -78,7 +80,7 @@ class MoneyTest {
     @Test
     fun testMixedAddition() {
         val bank = setUpBankWithCHF2USDRate()
-        val result = bank.reduce(fiveBucks + tenFrancs, "USD")
+        val result = bank.reduce(fiveBucks + tenFrancs, USD)
         assertEquals(dollar(10), result)
     }
 
@@ -86,7 +88,7 @@ class MoneyTest {
     fun testSumPlusMoney() {
         val bank = setUpBankWithCHF2USDRate()
         val sum = Expression.Sum(fiveBucks, tenFrancs) + fiveBucks
-        val result = bank.reduce(sum, "USD")
+        val result = bank.reduce(sum, USD)
         assertEquals(dollar(15), result)
     }
 
@@ -94,13 +96,13 @@ class MoneyTest {
     fun testSumTimes() {
         val bank = setUpBankWithCHF2USDRate()
         val sum = Expression.Sum(fiveBucks, tenFrancs) * 2
-        val result = bank.reduce(sum, "USD")
+        val result = bank.reduce(sum, USD)
         assertEquals(dollar(20), result)
     }
 
     private fun setUpBankWithCHF2USDRate(): Bank {
         val bank = Bank()
-        bank.addRate("CHF", "USD", 2)
+        bank.addRate(CHF, USD, 2)
         return bank
     }
 }
