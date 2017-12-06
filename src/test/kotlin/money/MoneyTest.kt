@@ -12,8 +12,8 @@ class MoneyTest {
     @Test
     fun testMultiplication() {
         val five = dollar(5)
-        assertEquals(dollar(10), five.times(2))
-        assertEquals(dollar(15), five.times(3))
+        assertEquals(dollar(10), five * 2)
+        assertEquals(dollar(15), five * 3)
     }
 
     @Test
@@ -70,5 +70,15 @@ class MoneyTest {
     @Test
     fun testIdentityRate() {
         assertEquals(1, Bank().rate("USD", "USD"))
+    }
+
+    @Test
+    fun testMixedAddition() {
+        val fiveBucks: Expression = dollar(5)
+        val tenFrancs: Expression = franc(10)
+        val bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        val result = bank.reduce(fiveBucks + tenFrancs, "USD")
+        assertEquals(dollar(10), result)
     }
 }

@@ -2,9 +2,7 @@ package money
 
 data class Money(val amount: Int, val currency: String) : Expression() {
 
-    fun times(multiplier: Int): Money = Money(amount * multiplier, currency)
-
-    operator fun plus(addend: Money): Expression = Sum(this, addend)
+    operator fun times(multiplier: Int): Expression = Money(amount * multiplier, currency)
 
     companion object {
         fun dollar(amount: Int): Money = Money(amount, "USD")
@@ -14,5 +12,7 @@ data class Money(val amount: Int, val currency: String) : Expression() {
 
 sealed class Expression {
 
-    data class Sum(val augend: Money, val addend: Money) : Expression()
+    operator fun plus(addend: Expression): Expression = Sum(this, addend)
+
+    data class Sum(val augend: Expression, val addend: Expression) : Expression()
 }
