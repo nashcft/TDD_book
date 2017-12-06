@@ -72,24 +72,35 @@ class MoneyTest {
         assertEquals(1, Bank().rate("USD", "USD"))
     }
 
+    private val fiveBucks: Expression = dollar(5)
+    private val tenFrancs: Expression = franc(10)
+
     @Test
     fun testMixedAddition() {
-        val fiveBucks: Expression = dollar(5)
-        val tenFrancs: Expression = franc(10)
-        val bank = Bank()
-        bank.addRate("CHF", "USD", 2)
+        val bank = setUpBankWithCHF2USDRate()
         val result = bank.reduce(fiveBucks + tenFrancs, "USD")
         assertEquals(dollar(10), result)
     }
 
     @Test
     fun testSumPlusMoney() {
-        val fiveBucks: Expression = dollar(5)
-        val tenFrancs: Expression = franc(10)
-        val bank = Bank()
-        bank.addRate("CHF", "USD", 2)
+        val bank = setUpBankWithCHF2USDRate()
         val sum = Expression.Sum(fiveBucks, tenFrancs) + fiveBucks
         val result = bank.reduce(sum, "USD")
         assertEquals(dollar(15), result)
+    }
+
+    @Test
+    fun testSumTimes() {
+        val bank = setUpBankWithCHF2USDRate()
+        val sum = Expression.Sum(fiveBucks, tenFrancs) * 2
+        val result = bank.reduce(sum, "USD")
+        assertEquals(dollar(20), result)
+    }
+
+    private fun setUpBankWithCHF2USDRate(): Bank {
+        val bank = Bank()
+        bank.addRate("CHF", "USD", 2)
+        return bank
     }
 }
