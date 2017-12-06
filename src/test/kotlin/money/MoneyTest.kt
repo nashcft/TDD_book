@@ -103,10 +103,4 @@ class MoneyTest {
         bank.addRate("CHF", "USD", 2)
         return bank
     }
-
-    @Test
-    fun testPlusSameCurrencyReturnMoney() {
-        val sum = dollar(1) + dollar(1)
-        assertTrue(sum is Money)
-    }
 }

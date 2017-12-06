@@ -8,7 +8,7 @@
 - [x] `$5 + 10CHF = $10` (レートが 2:1 の場合)
 - [ ] `Money` の丸め処理をどうする?
 - [x] $5 + $5 = $10
-- [ ] $5 + $5 = $10 が `Money` を返す
+- [x] $5 + $5 = $10 が `Money` を返す
 - [x] `Bank.reduce(Money)`
 - [x] `Money` を変換して換算を行う
 - [x] `Reduce(Bank, String)` 
