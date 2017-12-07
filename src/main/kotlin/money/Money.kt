@@ -3,8 +3,8 @@ package money
 data class Money(val amount: Int, val currency: Currency) : Expression() {
 
     companion object {
-        fun dollar(amount: Int): Money = Money(amount, Currency.USD)
-        fun franc(amount: Int): Money = Money(amount, Currency.CHF)
+        fun dollar(amount: Int) = Money(amount, Currency.USD)
+        fun franc(amount: Int) = Money(amount, Currency.CHF)
     }
 
     enum class Currency {
