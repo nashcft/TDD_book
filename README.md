@@ -31,3 +31,13 @@
 - [x] `Franc` と `Dollar` を比較する
 - [x] 通過の概念
 - [x] `testFrancMultiplication` を削除する?
+
+## Part 2
+### TODO List
+
+- [ ] テストメソッドを呼び出す
+- [ ] `setUp` を最初に呼び出す
+- [ ] `tearDown` を最後に呼び出す
+- [ ] テストメソッドが失敗したとしても `tearDown` を呼び出す
+- [ ] 複数のテストを走らせる
+- [ ] 収集したテスト結果を出力する
